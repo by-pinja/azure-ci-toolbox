@@ -1,2 +1,9 @@
 # azure-ci-container
-Container for CI builds to execute deployments to azure
+
+Since <https://hub.docker.com/r/azuresdk/azure-powershell-core> is not supported and broken
+we use extended self built image for CI.
+
+## Tools
+
+- Powershell 7
+- Powershell AZ module
