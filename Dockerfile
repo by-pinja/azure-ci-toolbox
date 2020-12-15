@@ -21,5 +21,5 @@ RUN addgroup -S -g ${DOCKER_GID} docker && \
     adduser -S -G docker docker && \
     adduser -G docker -u 1000 -D jenkins
 
-RUN pwsh -command 'Install-Module -Name Az -AllowClobber -Scope CurrentUser -Force' && \
+RUN pwsh -command 'Install-Module -Name Az -AllowClobber -Scope CurrentUser -Force -RequiredVersion 4.2.0' && \
     chmod +x /etc/util-scripts/Login.ps1
