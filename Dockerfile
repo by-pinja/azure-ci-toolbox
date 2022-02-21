@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com\azure-cloudshell@sha256:075eadba1d78d537fa188fe82d4bc0f6e552ab3416d60c0b43bff5fd5372535e
+FROM mcr.microsoft.com/azure-cloudshell@sha256:075eadba1d78d537fa188fe82d4bc0f6e552ab3416d60c0b43bff5fd5372535e
 
 COPY ./Login.ps1 /etc/util-scripts/Login.ps1
 
