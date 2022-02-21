@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/powershell:7.1.0-alpine-3.12-20201116
+FROM mcr.microsoft.com\azure-cloudshell@sha256:075eadba1d78d537fa188fe82d4bc0f6e552ab3416d60c0b43bff5fd5372535e
 
 COPY ./Login.ps1 /etc/util-scripts/Login.ps1
 
@@ -21,5 +21,4 @@ RUN addgroup -S -g ${DOCKER_GID} docker && \
     adduser -S -G docker docker && \
     adduser -G docker -u 1000 -D jenkins
 
-RUN pwsh -command 'Install-Module -Name Az -AllowClobber -Scope CurrentUser -Force -RequiredVersion 4.2.0' && \
-    chmod +x /etc/util-scripts/Login.ps1
+RUN chmod +x /etc/util-scripts/Login.ps1
