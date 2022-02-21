@@ -8,7 +8,7 @@ ARG DOCKER_VERSION="18.03.1"
 ARG DOCKER_URI="https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}-ce.tgz"
 ARG DOCKER_GID="412"
 
-RUN apk --no-cache add curl && \
+RUN apt install curl && \
     curl ${DOCKER_URI} -o /tmp/docker-${DOCKER_VERSION}.tgz && \
     cd /tmp && \
     tar -xvzf /tmp/docker-${DOCKER_VERSION}.tgz docker/docker && \
@@ -17,8 +17,8 @@ RUN apk --no-cache add curl && \
     rm -v /tmp/docker-${DOCKER_VERSION}.tgz && \
     chmod -v +x ${DOCKER_PATH}/docker
 
-RUN addgroup -S -g ${DOCKER_GID} docker && \
-    adduser -S -G docker docker && \
-    adduser -G docker -u 1000 -D jenkins
+RUN addgroup --system --gid ${DOCKER_GID} docker && \
+    adduser --system --ingroup docker docker && \
+    adduser --ingroup docker -u 1000 --disabled-password jenkins
 
 RUN chmod +x /etc/util-scripts/Login.ps1
